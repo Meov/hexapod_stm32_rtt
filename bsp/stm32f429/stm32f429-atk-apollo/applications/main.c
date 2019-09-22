@@ -11,7 +11,9 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#include "network.h"
 static rt_thread_t thread1;
+
 
 
 /* defined the LED0 pin: PB1 */
@@ -34,7 +36,9 @@ int main(void)
 }
 
 static void thread_main_entry(void *parameter){
-	
+		
+		uart_init();
+		
 		while(1){
 			rt_kprintf("rt-thrad-1\n");
 			rt_thread_delay(1);
@@ -55,7 +59,10 @@ int rt_thread_start_up(void){
 		if(result != RT_EOK){
 		
 			rt_kprintf("created thread1 failed!\n");
+			return RT_ERROR;
 			
 		}
+
+	RT_EOK;
 }
 

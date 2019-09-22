@@ -80,6 +80,8 @@ static struct stm32_uart_config uart_config[] =
 
 static struct stm32_uart uart_obj[sizeof(uart_config) / sizeof(uart_config[0])] = {0};
 
+
+
 static rt_err_t stm32_configure(struct rt_serial_device *serial, struct serial_configure *cfg)
 {
     struct stm32_uart *uart;
