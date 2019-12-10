@@ -7,7 +7,7 @@
 
 #define UART2_SERIAL_CONFIG                     \
 {                                               \
-    BAUD_RATE_9,     /* 9600 bits/s */       \
+    BAUD_RATE_9600,     /* 9600 bits/s */       \
     DATA_BITS_8,        /* 8 databits */        \
     STOP_BITS_1,        /* 1 stopbit */         \
     PARITY_NONE,        /* No parity  */        \
