@@ -363,7 +363,7 @@ rt_size_t rt_device_read(rt_device_t dev,
         return device_read(dev, pos, buffer, size);
     }
 
-    /* set error code */
+    /* set error code */	
     rt_set_errno(-RT_ENOSYS);
 
     return 0;
