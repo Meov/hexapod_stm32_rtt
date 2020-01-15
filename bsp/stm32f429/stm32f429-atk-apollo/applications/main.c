@@ -21,7 +21,6 @@ static void thread_main_entry(void *parameter){
 		
 		rt_network_init();
 		while(1){
-			//rt_kprintf("rt-thrad-1\n");
 			rt_thread_delay(1);
 		}
 }
