@@ -1,4 +1,7 @@
 #include "gait_update.h"
+
+#ifdef old
+
 extern float omega_set;
 extern float beta_set;
 extern vals desired_values;
@@ -1003,5 +1006,5 @@ void get_cmd_from_pc()
 					HAL_TIM_Base_Start_IT(&TIM3_Handler); //开始定时器计数
 			}
 }
-
+#endif
 

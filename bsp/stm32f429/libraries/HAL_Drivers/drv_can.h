@@ -45,7 +45,7 @@ struct stm32_can
     char *name;
     CAN_HandleTypeDef CanHandle;
     CAN_FilterTypeDef FilterConfig;
-    struct rt_can_device device;     /* inherit from can device */
+    struct rt_device device;     /* inherit from can device */
 };
 
 int rt_hw_can_init(void);

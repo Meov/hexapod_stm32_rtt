@@ -2,11 +2,9 @@
 #define _GAIT_UPDATE_H
 
 
-#include "usart.h"
-#include "CpgGenerator.h"
+#include "cpg_generator.h"
 #include <stdbool.h>
 #include <string.h>
-#include "timer.h"
 #include "math.h"
 #include "can.h"
 

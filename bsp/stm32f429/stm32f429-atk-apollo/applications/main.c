@@ -14,7 +14,9 @@
 #include "network.h"
 #include "drv_usart.h"
 #include "led_ctrl.h"
-
+#include "basic_cmd.h"
+#include "cmd_parse.h"
+#include "cpg_generator.h"
 static rt_thread_t thrad_main;
 
 
@@ -23,12 +25,17 @@ static void thread_main_entry(void *parameter){
 		led_ctrl_init();
 		
 		rt_network_init();
+		
+		cmd_parse_init();
+
+		cmd_hexapod_init();
+	
+		cpg_generator_init();
 	
 }
 
 int rt_thread_start_up(void){
 		
-		rt_kprintf("rt-thrad-1\n");
 		rt_err_t result;
 		thrad_main = rt_thread_create("thrad_main",
 									thread_main_entry,

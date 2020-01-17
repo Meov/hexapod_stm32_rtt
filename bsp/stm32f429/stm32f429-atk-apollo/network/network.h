@@ -4,6 +4,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#define DATA_MAX_LEN 3
+
 
 #define UART2_SERIAL_CONFIG                     \
 {                                               \
@@ -18,6 +20,25 @@
 }
 
 
+typedef struct uart_data_buf_type {
+	enum {
+        RECV_EMPTY = 0,
+        RECV_START,
+        RECV_FIN,
+        RECV_ERR
+    } state;
+    uint8_t len;
+    uint8_t msg[DATA_MAX_LEN];
+}UartDataBufType;
+
+typedef struct datarecievd{
+	uint8_t head;
+	uint8_t cmd;
+	uint8_t tail;
+}DataRecievd;
+
+
+int uart_data_recived_finish(uint8_t *buf, uint16_t* len);
+void uart_recv_init(rt_sem_t sem);
 void rt_network_init(void);
 #endif
-
