@@ -1,5 +1,5 @@
-#ifndef __UART_H
-#define __UART_H
+#ifndef __NETWORK_H
+#define __NETWORK_H
 
 #include <rtthread.h>
 #include <rtdevice.h>

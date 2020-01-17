@@ -13,16 +13,17 @@
 #include <board.h>
 #include "network.h"
 #include "drv_usart.h"
+#include "led_ctrl.h"
+
 static rt_thread_t thrad_main;
 
-#define LED0_PIN    GET_PIN(B, 1)
 
 static void thread_main_entry(void *parameter){
 		
+		led_ctrl_init();
+		
 		rt_network_init();
-		while(1){
-			rt_thread_delay(1);
-		}
+	
 }
 
 int rt_thread_start_up(void){
@@ -43,25 +44,16 @@ int rt_thread_start_up(void){
 			rt_kprintf("created thread1 failed!\n");
 			return RT_ERROR;
 		}
-	RT_EOK;
+	return RT_EOK;
 }
 
 
 
 int main(void)
 {	
-    int count = 1;
-    /* set LED0 pin mode to output */
-    rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
+   
 	rt_thread_start_up();
-	while (count++)
-    {	
-		
-        rt_pin_write(LED0_PIN, PIN_HIGH);
-        rt_thread_mdelay(100);
-        rt_pin_write(LED0_PIN, PIN_LOW);
-        rt_thread_mdelay(100);
-    }
+	
     return RT_EOK;
 }
 
